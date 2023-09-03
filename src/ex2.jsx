@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { createTurtle } from "./turtle";
+import * as ex2 from "./exercices/ex2";
 
 export default function Ex2() {
   const ref = useRef(null);
   const [string, setString] = useState("");
   const [turtle, setTurtle] = useState(null);
-  const [view, setView] = useState({ x: 20, y: 20, scale: 3 });
+  const [view, setView] = useState({ x: 20, y: 20, scale: 1 });
 
   function draw() {
     if (ref.current && turtle) {
@@ -14,26 +15,18 @@ export default function Ex2() {
   }
 
   useEffect(() => {
-    const turtle = createTurtle(
-      ref.current.getContext("2d"),
-      (Math.PI * 2) / 3,
-      10
-    );
+    const turtle = createTurtle(ref.current.getContext("2d"), Math.PI / 3, 30);
     setTurtle(turtle);
   }, []);
 
   useEffect(() => {
     if (turtle) {
       turtle.commencer();
-      turtle.avancer();
-      turtle.tournerDroite();
-      turtle.avancer();
-      turtle.tournerDroite();
-      turtle.avancer();
+      ex2.dessinerChaine(turtle, string);
 
       draw();
     }
-  }, [turtle]);
+  }, [turtle, string]);
 
   useEffect(() => {
     draw();
@@ -44,11 +37,11 @@ export default function Ex2() {
       <canvas
         ref={ref}
         onMouseMove={(e) => {
-          if (e.buttons & (1 === 1)) {
+          if (e.buttons & 1) {
             setView({
               ...view,
-              x: (view.x += e.movementX),
-              y: (view.y += e.movementY),
+              x: (view.x += e.movementX / 2),
+              y: (view.y += e.movementY / 2),
             });
           }
         }}
@@ -59,6 +52,7 @@ export default function Ex2() {
       ></canvas>
       <br />
       <button onClick={draw}>Redraw</button>
+      <input onChange={(e) => setString(e.target.value)}></input>
     </div>
   );
 }

@@ -13,7 +13,9 @@ export function createTurtle(canvas, rotationAngle, segmentLength) {
       // Reset current transformation matrix to the identity matrix
       this.context.setTransform(1, 0, 0, 1, 0, 0);
 
-      this.callStack.push(() => this.context.moveTo(this.x, this.y));
+      const x = this.x;
+      const y = this.y;
+      this.callStack.push(() => this.context.moveTo(x, y));
 
       this.context.lineWidth = 2;
       this.context.strokeStyle = "red";
@@ -28,7 +30,6 @@ export function createTurtle(canvas, rotationAngle, segmentLength) {
       const x = this.x;
       const y = this.y;
       this.callStack.push(() => {
-        console.log(`lineto ${x} ${y}`);
         this.context.lineTo(x, y);
       });
     },
@@ -50,7 +51,7 @@ export function createTurtle(canvas, rotationAngle, segmentLength) {
       this.x = state.x;
       this.y = state.y;
       this.angle = state.angle;
-      this.callStack.push(() => this.context.moveTo(this.x, this.y));
+      this.callStack.push(() => this.context.moveTo(state.x, state.y));
     },
     dessiner: function (x = 0, y = 0, scale = 1) {
       this.context.setTransform(1, 0, 0, 1, 0, 0);
@@ -62,17 +63,13 @@ export function createTurtle(canvas, rotationAngle, segmentLength) {
       );
 
       this.context.translate(-this.minX + 10 + x, -this.minY + 10 + y);
-      this.context.scale(scale, scale);
+      this.context.scale(2 * scale, scale);
 
       this.context.beginPath();
       for (let i = 0; i < this.callStack.length; i++) {
         this.callStack[i]();
-        console.log(i);
       }
       this.context.stroke();
-
-      console.log(`${-this.minX + 10}, ${-this.minY + 10}`);
-      console.log("Terminé");
     },
   };
 }

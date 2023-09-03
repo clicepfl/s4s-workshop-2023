@@ -44,5 +44,7 @@ input {
 }
 
 canvas {
-    border: #66f 2px solid;
+  border: #66f 2px solid;
+  width: 500px;
+  height: 500px;
 }
