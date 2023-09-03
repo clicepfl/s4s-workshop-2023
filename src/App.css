@@ -1,25 +1,48 @@
 .App {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
+  min-height: 90vh;
   flex-direction: column;
   color: white;
-  padding:5% 10%;
+  padding: 5vh 10%;
 }
 
-.horizontal-container{
-    display: flex;
-    flex-direction: row;
-    gap: 0.2rem;
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+
+input {
+  margin: 0.3rem 0;
 }
 
 .number-input {
-    width: 3rem;
+  width: 3rem;
 }
+
 .character-input {
-    width: 1rem;
+  width: 1rem;
 }
 
 .exercise-part > button {
-    margin-top: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.link {
+  color: #66f;
+  cursor: pointer;
+}
+
+.link::before {
+  content: "";
+  display: inline-block;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  border-left: 0.4rem solid #99f;
+  padding-right: 0.4rem;
+}
+
+canvas {
+    border: #66f 2px solid;
 }
