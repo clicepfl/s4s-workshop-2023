@@ -12,9 +12,14 @@
   flex-direction: row;
   gap: 0.2rem;
 }
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
 
 input {
-  margin: 0.3rem 0;
+  margin: 0.3rem;
 }
 
 .number-input {
@@ -47,4 +52,13 @@ canvas {
   border: #66f 2px solid;
   width: 500px;
   height: 500px;
+}
+
+.canvas-inputs > p {
+    margin: 0;
+    max-width: 200px;
+}
+
+.separator {
+    height: 1rem;
 }

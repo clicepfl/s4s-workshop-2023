@@ -53,7 +53,7 @@ export function createTurtle(canvas, rotationAngle, segmentLength) {
       this.angle = state.angle;
       this.callStack.push(() => this.context.moveTo(state.x, state.y));
     },
-    dessiner: function (x = 0, y = 0, scale = 1) {
+    dessiner: function (x = 0, y = 0) {
       this.context.setTransform(1, 0, 0, 1, 0, 0);
       this.context.clearRect(
         0,
@@ -62,8 +62,7 @@ export function createTurtle(canvas, rotationAngle, segmentLength) {
         this.context.canvas.height
       );
 
-      this.context.translate(-this.minX + 10 + x, -this.minY + 10 + y);
-      this.context.scale(2 * scale, scale);
+      this.context.translate(x, y);
 
       this.context.beginPath();
       for (let i = 0; i < this.callStack.length; i++) {
