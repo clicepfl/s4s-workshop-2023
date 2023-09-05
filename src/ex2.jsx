@@ -8,8 +8,8 @@ export default function Ex2() {
   const [ruleType, setRuleType] = useState("norule");
   const [view, setView] = useState({ x: 50, y: 50 });
   const [turtleSettings, setTurtleSettings] = useState({
-    segment: 10,
-    angle: Math.PI / 3,
+    segment: 15,
+    angle: 60,
   });
   const [turtle, setTurtle] = useState(null);
 
@@ -23,7 +23,7 @@ export default function Ex2() {
     setTurtle(
       createTurtle(
         ref.current.getContext("2d"),
-        turtleSettings.angle,
+        (Math.PI / 180) * turtleSettings.angle,
         turtleSettings.segment
       )
     );
@@ -51,11 +51,11 @@ export default function Ex2() {
             type="number"
             className="number-input"
             placeholder="Angle"
-            defaultValue={60}
+            value={turtleSettings.angle}
             onChange={(e) =>
               setTurtleSettings({
                 ...turtleSettings,
-                angle: (Math.PI / 180) * parseFloat(e.target.value),
+                angle: parseFloat(e.target.value),
               })
             }
           />
@@ -66,7 +66,7 @@ export default function Ex2() {
             type="number"
             className="number-input"
             placeholder="Segment length"
-            defaultValue={30}
+            value={turtleSettings.segment}
             onChange={(e) =>
               setTurtleSettings({
                 ...turtleSettings,

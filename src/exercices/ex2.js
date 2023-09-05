@@ -1,7 +1,6 @@
-export function dessinerChaine(turtle, string) {
-  for (let i = 0; i < string.length; i++) {
-    const char = string[i];
-    switch (char) {
+export function dessinerChaine(turtle, chaine) {
+  for (let i = 0; i < chaine.length; i++) {
+    switch (chaine[i]) {
       case "+":
         turtle.tournerGauche();
         break;
@@ -22,29 +21,29 @@ export function dessinerChaine(turtle, string) {
 }
 
 export function appliquerRegle(chaine, regle) {
-  let result = "";
+  let resultat = "";
 
   for (let i = 0; i < chaine.length; i++) {
     if (chaine[i] === "F") {
-      result += regle;
+      resultat += regle;
     } else {
-      result += chaine[i];
+      resultat += chaine[i];
     }
   }
 
-  return result;
+  return resultat;
 }
 
 export function appliquerRegles(chaine, regles) {
-  let result = "";
+  let resultat = "";
 
   for (let i = 0; i < chaine.length; i++) {
     if (regles[chaine[i]] !== undefined) {
-      result += regles[chaine[i]];
+      resultat += regles[chaine[i]];
     } else {
-      result += chaine[i];
+      resultat += chaine[i];
     }
   }
 
-  return result;
+  return resultat;
 }

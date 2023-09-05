@@ -5,7 +5,7 @@ import { Exercise } from "./template";
 function Home({ setExercise }) {
   return (
     <div>
-      <h1>Welcome</h1>
+      <h1>Bienvenue</h1>
 
       <p>TODO</p>
       <div className="link" onClick={() => setExercise(1)}>

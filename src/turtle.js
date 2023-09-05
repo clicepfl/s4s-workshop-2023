@@ -62,7 +62,7 @@ export function createTurtle(canvas, rotationAngle, segmentLength) {
         this.context.canvas.height
       );
 
-      this.context.translate(x, y);
+      this.context.translate(x - this.minX, y - this.minY);
 
       this.context.beginPath();
       for (let i = 0; i < this.callStack.length; i++) {
