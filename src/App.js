@@ -5,14 +5,10 @@ import { Exercise } from "./template";
 function Home({ setExercise }) {
   return (
     <div>
-      <h1>Bienvenue</h1>
-
-      <p>TODO</p>
       <div className="link" onClick={() => setExercise(1)}>
         Exercise 1
       </div>
 
-      <p>TODO</p>
       <div className="link" onClick={() => setExercise(2)}>
         Exercise 2
       </div>

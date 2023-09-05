@@ -11,6 +11,12 @@ function Part1() {
   return (
     <div className="exercise-part">
       <h2>Partie 1</h2>
+      <p className="instructions">
+        Dans cette première partie, le but est de reproduire l'exemple de
+        l'addition/soustraction de deux nombres, mais avec une
+        multiplication/division. Pour ce faire, complétez la fonction{" "}
+        <span className="code">partie1()</span>.
+      </p>
       <div className="horizontal-container">
         <input
           className="number-input"
@@ -50,6 +56,15 @@ function Part2() {
   return (
     <div className="exercise-part">
       <h2>Partie 2</h2>
+      <p className="instructions">
+        Ici, le but est de résoudre une équation du second degré dans les
+        nombres réels. Pour ce faire, complétez la fonction{" "}
+        <span className="code">partie2()</span>.
+        <br />
+        <br />
+        Note: pour renvoyer plusieurs éléments, regroupez les dans un tableau:{" "}
+        <span className="code">[a, b]</span>
+      </p>
       <div className="horizontal-container">
         <input
           className="number-input"
@@ -90,6 +105,11 @@ function Part3() {
   return (
     <div className="exercise-part">
       <h2>Partie 3</h2>
+      <p className="instructions">
+        Complétez la fonction <span className="code">partie3()</span> pour
+        qu'elle compte le nombre d'occurrence d'un caractère donné dans une
+        chaîne de caractères.
+      </p>
       <input
         placeholder="abaccaaba"
         defaultValue="abaccaaba"
@@ -115,6 +135,15 @@ function Part3() {
 export default function Ex1() {
   return (
     <>
+      <p className="instructions">
+        Cet exercice a pour but de manier les concepts de programmation vus, tel
+        que la déclaration et manipulation de variable, les conditions et les
+        boucles.
+        <br />
+        <br />
+        Tout cet exercice se déroulera dans le fichier{" "}
+        <span className="code">exercices/ex1.js</span>.
+      </p>
       <Part1 />
       <Part2 />
       <Part3 />
